@@ -25,24 +25,26 @@
 				<version>3.2.0</version>
 			</plugin>
 			<plugin>
-				<groupId>org.mule.tools.maven</groupId>
-				<artifactId>mule-maven-plugin</artifactId>
-				<version>${mule.maven.plugin.version}</version>
-				<extensions>true</extensions>
-				<configuration>
-					<cloudHubDeployment>
-						<uri>https://anypoint.mulesoft.com</uri>
-						<muleVersion>${mule.version}</muleVersion>
-						<username>${anypoint.username}</username>
-						<password>${anypoint.password}</password>
-						<environment>${env}</environment>
-						<applicationName>${appname}</applicationName>
-						<businessGroup>${business}</businessGroup>
-						<workerType>${vCore}</workerType>
-						<workers>${workers}</workers>
-						<objectStoreV2>true</objectStoreV2>
-					</cloudHubDeployment>
-				</configuration>
+    			<groupId>org.mule.tools.maven</groupId>
+    			<artifactId>mule-maven-plugin</artifactId>
+    			<version>4.10.1</version>
+    			<extensions>true</extensions>
+    			<configuration>
+        			<cloudhub2Deployment>
+            			<uri>https://anypoint.mulesoft.com</uri>
+            			<provider>MC</provider>
+			            <environment>${env}</environment>
+			            <target>${target}</target>
+			            <muleVersion>${mule.version}</muleVersion>
+			            <connectedAppClientId>${connectedApp.clientId}</connectedAppClientId>
+			            <connectedAppClientSecret>${connectedApp.clientSecret}</connectedAppClientSecret>
+			            <connectedAppGrantType>client_credentials</connectedAppGrantType>
+			            <applicationName>${appname}</applicationName>
+			            <replicas>${replicas}</replicas>
+			            <vCores>${vCore}</vCores>
+			            <businessGroup>${business}</businessGroup>
+        			</cloudhub2Deployment>
+    			</configuration>
 			</plugin>
 		</plugins>
 	</build>
