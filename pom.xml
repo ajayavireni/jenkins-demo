@@ -30,25 +30,32 @@
     			<version>4.10.1</version>
     			<extensions>true</extensions>
     			<configuration>
+    			<classifier>mule-application</classifier>
         			<cloudhub2Deployment>
             			<uri>https://anypoint.mulesoft.com</uri>
             			<provider>MC</provider>
 			            <environment>${env}</environment>
 			            <target>${target}</target>
-			            <muleVersion>${mule.version}</muleVersion>
+						<muleVersion>${app.runtime}</muleVersion>
 			            <connectedAppClientId>${connectedApp.clientId}</connectedAppClientId>
 			            <connectedAppClientSecret>${connectedApp.clientSecret}</connectedAppClientSecret>
 			            <connectedAppGrantType>client_credentials</connectedAppGrantType>
 			            <applicationName>${appname}</applicationName>
 			            <replicas>${replicas}</replicas>
 			            <vCores>${vCore}</vCores>
-			            <businessGroup>${business}</businessGroup>
         			</cloudhub2Deployment>
     			</configuration>
 			</plugin>
 		</plugins>
 	</build>
-
+	<distributionManagement>
+    	<repository>
+        	<id>anypoint-exchange-v3</id>
+        	<name>Anypoint Exchange</name>
+        	<url>https://maven.anypoint.mulesoft.com/api/v3/organizations/a7ddef57-3792-4e46-82ac-7ad3b45f73de/maven</url>
+        	<layout>default</layout>
+    	</repository>
+	</distributionManagement>
 	<dependencies>
 		<dependency>
 			<groupId>org.mule.connectors</groupId>
